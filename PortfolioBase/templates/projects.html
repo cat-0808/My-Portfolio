@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <title>My Platforms</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f9f9f9;
+          margin: 0;
+          padding: 0;
+      }
+      .header {
+          background: linear-gradient(45deg, #009688, #00685d);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 1rem 2rem;
+          color: #fff;
+      }
+      .header .logo {
+          display: flex;
+          align-items: center;
+      }
+      .header .logo img {
+          height: 50px;
+          margin-right: 1rem;
+      }
+      .header nav {
+          display: flex;
+          gap: 1rem;
+      }
+      .header nav a {
+          color: #fff;
+          text-decoration: none;
+          padding: 0.5rem 1rem;
+          background: #00796b;
+          border-radius: 5px;
+          transition: background 0.3s;
+      }
+      .header nav a:hover {
+          background: #64fdee;
+      }
+      .container {
+          max-width: 900px;
+          margin: 2rem auto;
+          padding: 1rem;
+          background: white;
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .platform {
+          display: flex;
+          align-items: center;
+          margin-bottom: 1.5rem;
+          padding: 1rem;
+          border-bottom: 1px solid #ddd;
+      }
+      .platform:last-child {
+          border-bottom: none;
+      }
+      .platform img {
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+          margin-right: 1rem;
+      }
+      .platform h2 {
+          margin: 0 0 0.5rem;
+          font-size: 1.5rem;
+          color: #009688;
+      }
+      .platform p {
+          margin: 0.5rem 0;
+          color: #555;
+      }
+      .platform a {
+          display: inline-block;
+          margin-top: 0.5rem;
+          color: #007BFF;
+          text-decoration: none;
+      }
+      .platform a:hover {
+          text-decoration: underline;
+      }
+  </style>
+<head>
+  
+  <header class="header">
+    <div class="logo">
+        <img src="https://static.wikia.nocookie.net/blue-archive/images/4/4c/Abydos_Icon.png" alt="Logo">
+        <h1>My Projects</h1>
+    </div>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'projects' %}">Projects</a>
+        <a href="{% url 'platforms' %}">Platforms</a>
+    </nav>
+</header>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+</style>
+</head>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+<!-- Sidebar/menu -->
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main">
+
+  <!-- Header -->
+  <header id="portfolio">
+    <a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+    <h1><b>My Portfolio</b></h1>
+    
+    </div>
+  </header>
+  
+  <div class="w3-row-padding">
+    <!-- First Column -->
+    <div class="w3-third w3-container w3-margin-bottom">
+        {% for photo in column1 %}
+            <img src="{{ photo.image.url }}" alt="{{ photo.title }}" style="width:100%" class="w3-hover-opacity">
+            <div class="w3-container w3-white">
+                <p><b>{{ photo.title }}</b></p>
+                <p>{{ photo.description }}</p>
+                <a href="{{ photo.project_url }}" class="w3-button w3-teal">View Project</a>
+            </div>
+        {% empty %}
+            <img src="https://via.placeholder.com/150" alt="Placeholder" style="width:100%" class="w3-hover-opacity">
+            <div class="w3-container w3-white">
+                <p><b>Lorem Ipsum</b></p>
+                <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                <a href="#" class="w3-button w3-grey" disabled>Not Available</a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Second Column -->
+    <div class="w3-third w3-container w3-margin-bottom">
+        {% for photo in column2 %}
+            <img src="{{ photo.image.url }}" alt="{{ photo.title }}" style="width:100%" class="w3-hover-opacity">
+            <div class="w3-container w3-white">
+                <p><b>{{ photo.title }}</b></p>
+                <p>{{ photo.description }}</p>
+                <a href="{{ photo.project_url }}" class="w3-button w3-teal">View Project</a>
+            </div>
+        {% empty %}
+            <img src="https://via.placeholder.com/150" alt="Placeholder" style="width:100%" class="w3-hover-opacity">
+            <div class="w3-container w3-white">
+                <p><b>Lorem Ipsum</b></p>
+                <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                <a href="#" class="w3-button w3-grey" disabled>Not Available</a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Third Column -->
+    <div class="w3-third w3-container">
+        {% for photo in column3 %}
+            <img src="{{ photo.image.url }}" alt="{{ photo.title }}" style="width:100%" class="w3-hover-opacity">
+            <div class="w3-container w3-white">
+                <p><b>{{ photo.title }}</b></p>
+                <p>{{ photo.description }}</p>
+                <a href="{{ photo.project_url }}" class="w3-button w3-teal">View Project</a>
+            </div>
+        {% empty %}
+            <img src="https://via.placeholder.com/150" alt="Placeholder" style="width:100%" class="w3-hover-opacity">
+            <div class="w3-container w3-white">
+                <p><b>Lorem Ipsum</b></p>
+                <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                <a href="#" class="w3-button w3-grey" disabled>Not Available</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+ 
+
+    
+ 
+    
+      
+     
+      
+      
+  
+  
+  <!-- Contact Section -->
+
+  <!-- Footer -->
+
+
+
+
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+
+</body>
+</html>

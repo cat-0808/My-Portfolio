@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+  <title>Home</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f9f9f9;
+          margin: 0;
+          padding: 0;
+      }
+      .header {
+          background: linear-gradient(45deg, #009688, #00685d);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 1rem 2rem;
+          color: #fff;
+      }
+      .header .logo {
+          display: flex;
+          align-items: center;
+      }
+      .header .logo img {
+          height: 50px;
+          margin-right: 1rem;
+      }
+      .header nav {
+          display: flex;
+          gap: 1rem;
+      }
+      .header nav a {
+          color: #fff;
+          text-decoration: none;
+          padding: 0.5rem 1rem;
+          background: #00796b;
+          border-radius: 5px;
+          transition: background 0.3s;
+      }
+      .header nav a:hover {
+          background: #64fdee;
+      }
+      .container {
+          max-width: 900px;
+          margin: 2rem auto;
+          padding: 1rem;
+          background: white;
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .platform {
+          display: flex;
+          align-items: center;
+          margin-bottom: 1.5rem;
+          padding: 1rem;
+          border-bottom: 1px solid #ddd;
+      }
+      .platform:last-child {
+          border-bottom: none;
+      }
+      .platform img {
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+          margin-right: 1rem;
+      }
+      .platform h2 {
+          margin: 0 0 0.5rem;
+          font-size: 1.5rem;
+          color: #009688;
+      }
+      .platform p {
+          margin: 0.5rem 0;
+          color: #555;
+      }
+      .platform a {
+          display: inline-block;
+          margin-top: 0.5rem;
+          color: #007BFF;
+          text-decoration: none;
+      }
+      .platform a:hover {
+          text-decoration: underline;
+      }
+  </style>
+<head>
+  
+  <header class="header">
+    <div class="logo">
+        <img src="https://static.wikia.nocookie.net/blue-archive/images/4/4c/Abydos_Icon.png" alt="Logo">
+        <h1>My Platforms</h1>
+    </div>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'projects' %}">Projects</a>
+        <a href="{% url 'platforms' %}">Platforms</a>
+    </nav>
+</header>
+
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
+</head>
+{% csrf_token %}
+<body class="w3-light-grey">
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div class="w3-third">
+      {% for data in MainPageImage %}
+      <div class="w3-white w3-text-grey w3-card-4">
+        
+        <div class="w3-display-container">
+          
+          <img src={{ data.image }} style="width:100%" alt="Avatar">
+        {% empty %}
+        <div class="w3-white w3-text-grey w3-card-4">
+        
+          <div class="w3-display-container">
+            
+            <img src=" {{ data.image.url }}" style="width:100%" alt="Avatar">
+        {% endfor %}
+          <div class="w3-display-bottomleft w3-container w3-text-white">
+            <h2>German, Dwayne Christian L. </h2>
+          </div>
+        </div>
+        <div class="w3-container">
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Student</p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Bulacan, Philippines</p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>dwaynechristian0113@gmail.com</p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>09063447429</p>
+          <hr>
+
+          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+          <p>Microsoft Visual Studio</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
+          </div>
+          <p>Marscode</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
+              <div class="w3-center w3-text-white">80%</div>
+            </div>
+          </div>
+          <p>VScode</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:40%">40%</div>
+          </div>
+          
+          <br>
+
+          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
+          <p>C#</p>
+          <div class="w3-light-grey w3-round-xlarge">
+            <div class="w3-round-xlarge w3-teal" style="height:24px;width:78%"></div>
+          </div>
+          <p>Python</p>
+          <div class="w3-light-grey w3-round-xlarge">
+            <div class="w3-round-xlarge w3-teal" style="height:24px;width:65%"></div>
+          </div>
+          <p>Java</p>
+          <div class="w3-light-grey w3-round-xlarge">
+            <div class="w3-round-xlarge w3-teal" style="height:24px;width:45%"></div>
+          </div>
+          <br>
+        </div>
+      </div><br>
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+    {% for data in Introduction %}
+    <div class="w3-twothird">
+      <div class="w3-container w3-card w3-white">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Introduction</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>{{ data.introduction }}</b></h5>
+          
+          <hr>
+        </div>
+    {% empty %}
+    <div class="w3-twothird">
+      <div class="w3-container w3-card w3-white">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Introduction</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Empty</b></h5>
+          
+          <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
+          <hr>
+        </div>
+      {% endfor %}
+      
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Current Experience</h2>
+        {% csrf_token %}
+        {% for data in MainPage %}
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>{{ data.experience }}</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i> {{ data.startdate }} - {{ data.enddate }}</span></h6>
+          <p>{{ data.experiencedesc }}</p>
+          <hr>
+        </div>
+        {% empty %}
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>N/A</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Empty</span></h6>
+          <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
+          <hr>
+        </div>
+        {% endfor %}
+        
+      </div>
+
+      
+
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+</div>
+
+<footer class="w3-container w3-teal w3-center w3-margin-top">
+  <p>Find me on social media.</p>
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+
+</footer>
+
+</body>
+</html>
